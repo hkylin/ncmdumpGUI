@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.27703.2026
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ncmdumpGUI", "ncmdumpGUI\ncmdumpGUI.csproj", "{A5187149-D5E9-4C7A-807B-6F6B9695ADA3}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x86 = Debug|x86
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{A5187149-D5E9-4C7A-807B-6F6B9695ADA3}.Debug|x86.ActiveCfg = Debug|x86
+		{A5187149-D5E9-4C7A-807B-6F6B9695ADA3}.Debug|x86.Build.0 = Debug|x86
+		{A5187149-D5E9-4C7A-807B-6F6B9695ADA3}.Release|x86.ActiveCfg = Release|x86
+		{A5187149-D5E9-4C7A-807B-6F6B9695ADA3}.Release|x86.Build.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {394A68CA-26B6-46D5-AA26-08B6A01C41DB}
+	EndGlobalSection
+EndGlobal
