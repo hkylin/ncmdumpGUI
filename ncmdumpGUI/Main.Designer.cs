@@ -32,11 +32,11 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.btnStart = new System.Windows.Forms.Button();
-            this.txtNcmFolderPath = new System.Windows.Forms.TextBox();
-            this.btnSelectNcmFolder = new System.Windows.Forms.Button();
-            this.txtMp3FolderPath = new System.Windows.Forms.TextBox();
             this.btnSelectMp3Folder = new System.Windows.Forms.Button();
+            this.txtMp3FolderPath = new System.Windows.Forms.TextBox();
+            this.btnSelectNcmFolder = new System.Windows.Forms.Button();
+            this.txtNcmFolderPath = new System.Windows.Forms.TextBox();
+            this.btnStart = new System.Windows.Forms.Button();
             this.folderBrowserDialog = new System.Windows.Forms.FolderBrowserDialog();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
@@ -82,22 +82,22 @@
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
             // 
-            // btnStart
+            // btnSelectMp3Folder
             // 
-            this.btnStart.Location = new System.Drawing.Point(228, 169);
-            this.btnStart.Name = "btnStart";
-            this.btnStart.Size = new System.Drawing.Size(75, 23);
-            this.btnStart.TabIndex = 2;
-            this.btnStart.Text = "开始转换";
-            this.btnStart.UseVisualStyleBackColor = true;
-            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
+            this.btnSelectMp3Folder.Location = new System.Drawing.Point(422, 72);
+            this.btnSelectMp3Folder.Name = "btnSelectMp3Folder";
+            this.btnSelectMp3Folder.Size = new System.Drawing.Size(75, 23);
+            this.btnSelectMp3Folder.TabIndex = 5;
+            this.btnSelectMp3Folder.Text = "选择目录";
+            this.btnSelectMp3Folder.UseVisualStyleBackColor = true;
+            this.btnSelectMp3Folder.Click += new System.EventHandler(this.btnSelectMp3Folder_Click);
             // 
-            // txtNcmFolderPath
+            // txtMp3FolderPath
             // 
-            this.txtNcmFolderPath.Location = new System.Drawing.Point(95, 28);
-            this.txtNcmFolderPath.Name = "txtNcmFolderPath";
-            this.txtNcmFolderPath.Size = new System.Drawing.Size(313, 21);
-            this.txtNcmFolderPath.TabIndex = 1;
+            this.txtMp3FolderPath.Location = new System.Drawing.Point(95, 74);
+            this.txtMp3FolderPath.Name = "txtMp3FolderPath";
+            this.txtMp3FolderPath.Size = new System.Drawing.Size(313, 21);
+            this.txtMp3FolderPath.TabIndex = 4;
             // 
             // btnSelectNcmFolder
             // 
@@ -109,22 +109,22 @@
             this.btnSelectNcmFolder.UseVisualStyleBackColor = true;
             this.btnSelectNcmFolder.Click += new System.EventHandler(this.btnSelectNcmFolder_Click);
             // 
-            // txtMp3FolderPath
+            // txtNcmFolderPath
             // 
-            this.txtMp3FolderPath.Location = new System.Drawing.Point(95, 74);
-            this.txtMp3FolderPath.Name = "txtMp3FolderPath";
-            this.txtMp3FolderPath.Size = new System.Drawing.Size(313, 21);
-            this.txtMp3FolderPath.TabIndex = 4;
+            this.txtNcmFolderPath.Location = new System.Drawing.Point(95, 28);
+            this.txtNcmFolderPath.Name = "txtNcmFolderPath";
+            this.txtNcmFolderPath.Size = new System.Drawing.Size(313, 21);
+            this.txtNcmFolderPath.TabIndex = 1;
             // 
-            // btnSelectMp3Folder
+            // btnStart
             // 
-            this.btnSelectMp3Folder.Location = new System.Drawing.Point(422, 72);
-            this.btnSelectMp3Folder.Name = "btnSelectMp3Folder";
-            this.btnSelectMp3Folder.Size = new System.Drawing.Size(75, 23);
-            this.btnSelectMp3Folder.TabIndex = 5;
-            this.btnSelectMp3Folder.Text = "选择目录";
-            this.btnSelectMp3Folder.UseVisualStyleBackColor = true;
-            this.btnSelectMp3Folder.Click += new System.EventHandler(this.btnSelectMp3Folder_Click);
+            this.btnStart.Location = new System.Drawing.Point(228, 169);
+            this.btnStart.Name = "btnStart";
+            this.btnStart.Size = new System.Drawing.Size(75, 23);
+            this.btnStart.TabIndex = 2;
+            this.btnStart.Text = "开始转换";
+            this.btnStart.UseVisualStyleBackColor = true;
+            this.btnStart.Click += new System.EventHandler(this.btnStart_Click);
             // 
             // Main
             // 
@@ -140,7 +140,7 @@
             this.MinimumSize = new System.Drawing.Size(549, 243);
             this.Name = "Main";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "ncmdumpGUI by kpali v1.0";
+            this.Text = "ncmdumpGUI by kpali v1.1";
             this.Load += new System.EventHandler(this.Main_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();

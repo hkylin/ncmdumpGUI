@@ -19,8 +19,8 @@ namespace ncmdumpGUI
 
         private NeteaseCopyrightData _cdata = null;
 
-        private Bitmap _cover = null;
-        public Bitmap Cover { get => _cover; }
+        private byte[] _cover = null;
+        public byte[] Cover { get => _cover; }
 
         private double _progress;
         public double Progress { get => _progress; }
@@ -102,10 +102,7 @@ namespace ncmdumpGUI
             _file.Seek(9, SeekOrigin.Current);
 
             byte[] imageChunk = ReadChunk(_file);
-            using (MemoryStream imageStream = new MemoryStream(imageChunk))
-            {
-                _cover = Image.FromStream(imageStream) as Bitmap;
-            }
+            _cover = imageChunk;
         }
 
         private byte[] ReadChunk(FileStream fs)
@@ -165,6 +162,17 @@ namespace ncmdumpGUI
                     _progress = (alreadyProcess / totalLen) * 100d;
                 }
             }
+
+            // 写入专辑封面
+            TagLib.ByteVector byteVector = new TagLib.ByteVector(_cover);
+            TagLib.Picture picture = new TagLib.Picture(byteVector);
+            TagLib.Mpeg.AudioFile audioFile = new TagLib.Mpeg.AudioFile(destFilePath);
+            var tags = audioFile.GetTag(TagLib.TagTypes.Id3v2);
+            TagLib.Id3v2.AttachedPictureFrame[] attachedPictureFrames = new TagLib.Id3v2.AttachedPictureFrame[1];
+            TagLib.Id3v2.AttachedPictureFrame attachedPictureFrame = new TagLib.Id3v2.AttachedPictureFrame(picture);
+            attachedPictureFrames[0] = attachedPictureFrame;
+            tags.Pictures = attachedPictureFrames;
+            audioFile.Save();
         }
     }
 }
