@@ -19,8 +19,49 @@ namespace ncmdumpGUI
             InitializeComponent();
         }
 
+        FileInfo configFileInfo;
+
         private void Main_Load(object sender, EventArgs e)
         {
+            StreamReader configFileReader = null;
+            try
+            {
+                configFileInfo = new FileInfo(AppDomain.CurrentDomain.BaseDirectory + "config");
+                if (configFileInfo.Exists)
+                {
+                    configFileReader = configFileInfo.OpenText();
+                    while(!configFileReader.EndOfStream)
+                    {
+                        String line = configFileReader.ReadLine().Trim();
+                        if (String.IsNullOrEmpty(line) || !line.Contains("="))
+                        {
+                            continue;
+                        }
+                        String[] config = line.Split('=');
+                        String key = config[0];
+                        String value = config[1];
+                        if (key == "ncmFolderPath")
+                        {
+                            this.txtNcmFolderPath.Text = value;
+                        }
+                        else if (key == "mp3FolderPath")
+                        {
+                            this.txtMp3FolderPath.Text = value;
+                        }
+                    }
+                    configFileReader.Close();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+                this.Close();
+            }
+            finally
+            {
+                if (configFileReader != null)
+                    configFileReader.Close();
+            }
         }
 
         private void btnSelectNcmFolder_Click(object sender, EventArgs e)
@@ -75,6 +116,24 @@ namespace ncmdumpGUI
                 });
                 asyncResult = BeginInvoke(delUIThreadOperation);
                 EndInvoke(asyncResult);
+
+                StreamWriter configFileWriter = null;
+                if (configFileInfo.Exists)
+                {
+                    File.Delete(configFileInfo.FullName);
+                }
+                try
+                {
+                    configFileWriter = configFileInfo.CreateText();
+                    configFileWriter.WriteLine("ncmFolderPath=" + ncmFolderPath);
+                    configFileWriter.WriteLine("mp3FolderPath=" + mp3FolderPath);
+                    configFileWriter.Flush();
+                }
+                finally
+                {
+                    if (configFileWriter != null)
+                        configFileWriter.Close();
+                }
 
                 DirectoryInfo ncmDirctoryInfo = new DirectoryInfo(ncmFolderPath);
                 DirectoryInfo mp3DirctoryInfo = new DirectoryInfo(mp3FolderPath);
