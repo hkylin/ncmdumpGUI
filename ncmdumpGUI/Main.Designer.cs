@@ -65,9 +65,9 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(10, 21);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(125, 12);
+            this.label3.Size = new System.Drawing.Size(311, 12);
             this.label3.TabIndex = 0;
-            this.label3.Text = "将ncm文件转成mp3文件";
+            this.label3.Text = "将ncm文件转成mp3文件，可拖拽NCM文件夹至本程序窗口。";
             // 
             // groupBox1
             // 
@@ -129,6 +129,7 @@
             // 
             // Main
             // 
+            this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(533, 204);
@@ -144,6 +145,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ncmdumpGUI by kpali v1.2";
             this.Load += new System.EventHandler(this.Main_Load);
+            this.DragDrop += new System.Windows.Forms.DragEventHandler(this.Form1_DragDrop);
+            this.DragEnter += new System.Windows.Forms.DragEventHandler(this.Form1_DragEnter);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
