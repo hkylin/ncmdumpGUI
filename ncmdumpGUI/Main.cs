@@ -169,5 +169,26 @@ namespace ncmdumpGUI
                 }
             }
         }
+
+
+        private void Form1_DragEnter(object sender, DragEventArgs e)
+        {
+
+            if (e.Data.GetDataPresent(DataFormats.FileDrop))
+                e.Effect = DragDropEffects.Link;
+            else e.Effect = DragDropEffects.None;
+        }
+
+        private void Form1_DragDrop(object sender, DragEventArgs e)
+        {
+
+            string path = ((System.Array)e.Data.GetData(DataFormats.FileDrop)).GetValue(0).ToString();
+            txtNcmFolderPath.Text = path;
+            txtMp3FolderPath.Text = path + "_MP3";
+            if (!Directory.Exists(txtMp3FolderPath.Text))
+            {
+                Directory.CreateDirectory(txtMp3FolderPath.Text);
+            }
+        }
     }
 }
